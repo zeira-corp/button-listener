@@ -24,10 +24,10 @@ class ButtonListener:
         while True:
             try:
                 button_value = self.button.digitalRead()
-
-                print("button:" + str(button_value))
-
-                time.sleep(1)
+                if button_value == 1:
+                    #print("yes?")
+                    call(["node", "../ignition/hey.bob.js"])
+                    time.sleep(1)
 
             except (IOError,TypeError) as e:
                 print e
